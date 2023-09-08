@@ -131,5 +131,7 @@
     <Win32InteropVersion>1.0.1</Win32InteropVersion>
     <EasyTabsVersion>1.0.0</EasyTabsVersion>
     <WindowsAPICodePackVersion>1.1.5</WindowsAPICodePackVersion>
+    <AsyncEnumerableVersion>1.0.0</AsyncEnumerableVersion>
+    <UpdateLibraryPocVersion>1.0.0</UpdateLibraryPocVersion>
   </PropertyGroup>
 </Project>
