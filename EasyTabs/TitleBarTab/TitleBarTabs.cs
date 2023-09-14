@@ -71,6 +71,15 @@ public partial class TitleBarTabs : Form
     protected readonly IAllEventsHandler<FormEventArgs> allEventsHandlerImplementation;
 
     /// <summary>
+    /// The default tab text.
+    /// </summary>
+    public string? DefaultText
+    {
+        get;
+        set;
+    } = string.Empty;
+
+    /// <summary>
     /// CreatingForm event.
     /// </summary>
     public event EventHandler<FormEventArgs>? CreatingForm;
@@ -888,7 +897,7 @@ public partial class TitleBarTabs : Form
     /// <summary>Calls <see cref="CreateTab" />, adds the resulting tab to the <see cref="Tabs" /> collection, and activates it.</summary>
     public virtual Task<bool> AddNewTab()
     {
-        return AddNewTab(string.Empty);
+        return AddNewTab(DefaultText);
     }
 
     /// <summary>Calls <see cref="CreateTab" />, adds the resulting tab to the <see cref="Tabs" /> collection, and activates it.</summary>
@@ -1088,6 +1097,18 @@ public partial class TitleBarTabs : Form
                         form.Text = contentText;
                     });
             };
+            string contentCopyText = string.Empty;
+            contentCopy.Invoke(new Action(
+                () =>
+                {
+                    contentCopyText = contentCopy.Text;
+                }));
+            if (!contentCopyText.IsNullOrEmpty())
+            {
+                form.Text = contentCopyText;
+            }
+
+            ;
             form.Icon = contentCopy.Icon;
 
             void OnContentCopyOnClosing(object o, CancelEventArgs cancelEventArgs)
@@ -1133,7 +1154,7 @@ public partial class TitleBarTabs : Form
 
             Content = content
         };
-        titleBarTab.Icon=content.Icon;
+        titleBarTab.Icon = content.Icon;
         return titleBarTab;
     }
 

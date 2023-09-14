@@ -84,7 +84,8 @@ public sealed class FormCreationHelper
         var thread = new Thread(
             () =>
             {
-                form = (createForm ?? new Func<Form>(() => new Form())).Invoke();
+                var func = (createForm ?? new Func<Form>(() => new Form()));
+                form = func.Invoke();
                 form.TopLevel = false;
                 if (!string.IsNullOrEmpty(text))
                 {
@@ -107,6 +108,10 @@ public sealed class FormCreationHelper
         while (form == null || !b)
         {
             Thread.Sleep(10);
+            if (form?.IsHandleCreated ?? false)
+            {
+                break;
+            }
         }
 
         return form;

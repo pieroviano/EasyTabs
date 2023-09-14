@@ -9,7 +9,7 @@
     <ImmatricolazioniWsLibrariesVersion>1.1.0</ImmatricolazioniWsLibrariesVersion>
     <FatturaElettronicaVersion>3.2.0</FatturaElettronicaVersion>
     <DocumentoUnicoLibrariesVersion>2.1.0</DocumentoUnicoLibrariesVersion>
-    <IdentityServer4Version>1.0.0</IdentityServer4Version>
+    <IdentityServer4Version>4.0.0</IdentityServer4Version>
     <NotepadSharpVersion>1.1.0</NotepadSharpVersion>
     <PdfRecognizerLibraryVersion>1.1.0</PdfRecognizerLibraryVersion>
     <SetupCustomActionVersion>1.1.0</SetupCustomActionVersion>
@@ -99,7 +99,7 @@
     <iTextCoreVersion>1.1.0</iTextCoreVersion>
     <PdfRepresentationVersion>1.1.0</PdfRepresentationVersion>
     <StarbVersion>23.5.0</StarbVersion>
-    <NuGetUtilityVersion>2.0.10</NuGetUtilityVersion>
+    <NuGetUtilityVersion>2.0.11</NuGetUtilityVersion>
     <DocumentoUnicoVersion>2.1.0</DocumentoUnicoVersion>
     <SystemDataDataSetExtensionsVersion>4.5.0</SystemDataDataSetExtensionsVersion>
     <PagedListVersion>4.5.0</PagedListVersion>

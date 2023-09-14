@@ -10,6 +10,8 @@ namespace EasyTabs;
 /// </summary>
 public static class TabbedApplicationHelper
 {
+    private static TitleBarTabs? _container;
+
     /// <summary>
     /// Creates a TabbedApplication.
     /// </summary>
@@ -27,7 +29,7 @@ public static class TabbedApplicationHelper
     /// <param name="initialize">Initializes the form when created.</param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
     public static ApplicationContext CreateTabbedApplication<T>(this Func<Form> createInitialForm, Func<T?, Task>? initialize)
-        where T:Form
+        where T : Form
     {
         return CreateTabbedApplication(createInitialForm, null, initialize);
     }
@@ -70,8 +72,8 @@ public static class TabbedApplicationHelper
 
         createForm ??= createInitialForm;
 
-        TitleBarTabs container = new TitleBarTabs();
-        container.CreatingForm += async (_, e) =>
+        _container = new TitleBarTabs();
+        _container.CreatingForm += async (_, e) =>
         {
             var eForm = createForm();
             e.Form = eForm;
@@ -82,14 +84,30 @@ public static class TabbedApplicationHelper
         };
 
         // Add the initial Tab
-        container.AddTab(createInitialForm());
+        _container.AddTab(createInitialForm());
 
         // Set initial tab the first one
-        container.SelectedTabIndex = 0;
+        _container.SelectedTabIndex = 0;
 
         // Create tabs and start application
         TitleBarTabsApplicationContext applicationContext = new TitleBarTabsApplicationContext();
-        applicationContext.Start(container);
+        applicationContext.Start(_container);
         return applicationContext;
+    }
+
+    /// <summary>
+    /// The default tab text.
+    /// </summary>
+    public static string? DefaultText
+
+    {
+        get => _container?.DefaultText;
+        set
+        {
+            if (_container != null)
+            {
+                _container.DefaultText = value;
+            }
+        }
     }
 }
