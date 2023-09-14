@@ -27,7 +27,7 @@ public class TabbedApplicationFormTests
                 _createTabbedApplication = initialForm.CreateTabbedApplication(()=> new TabbedApplicationForm
                                                                                     {
                                                                                         Text = "Next Form"
-                                                                                    });
+                                                                                    }, out _);
                 Application.Run(_createTabbedApplication);
                 return TaskEx.CompletedTask;
             }).RunWithCompletionSource(false, true);

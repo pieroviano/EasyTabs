@@ -1152,7 +1152,8 @@ public partial class TitleBarTabs : Form
             // The content will be an instance of another Form
             // In our example, we will create a new instance of the Form1
 
-            Content = content
+            Content = content,
+            OriginalContent=contentCopy
         };
         titleBarTab.Icon = content.Icon;
         return titleBarTab;
@@ -1199,19 +1200,22 @@ public partial class TitleBarTabs : Form
     /// Our First Tab created by default in the Application will have as content the Form
     /// </summary>
     /// <param name="form">The form.</param>
-    public void AddTab(Form form)
+    public void AddTab(Form? form)
     {
         var content = form;
-        content.ShowInTaskbar = false;
-        content.WindowState = FormWindowState.Minimized;
-        content.Show();
+        if (content != null)
+        {
+            content.ShowInTaskbar = false;
+            content.WindowState = FormWindowState.Minimized;
+            content.Show();
 
-        Tabs.Add(
-            new TitleBarTab(this)
-            {
-                Content = content
-            }
-        );
+            var titleBarTab = new TitleBarTab(this)
+                              {
+                                  Content = content,
+                              };
+            titleBarTab.OriginalContent ??= content;
+            Tabs.Add(titleBarTab);
+        }
     }
 
     /// <summary>

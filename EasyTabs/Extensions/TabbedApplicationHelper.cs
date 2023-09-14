@@ -10,16 +10,15 @@ namespace EasyTabs;
 /// </summary>
 public static class TabbedApplicationHelper
 {
-    private static TitleBarTabs? _container;
-
     /// <summary>
     /// Creates a TabbedApplication.
     /// </summary>
     /// <param name="createInitialForm">The Func that creates the initial form.</param>
+    /// <param name="defaultTextContainer"></param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public static ApplicationContext CreateTabbedApplication(this Func<Form> createInitialForm)
+    public static ApplicationContext CreateTabbedApplication(this Func<Form> createInitialForm, out IDefaultTextContainer defaultTextContainer)
     {
-        return CreateTabbedApplication(createInitialForm, null);
+        return CreateTabbedApplication(createInitialForm, null, out defaultTextContainer);
     }
 
     /// <summary>
@@ -27,11 +26,12 @@ public static class TabbedApplicationHelper
     /// </summary>
     /// <param name="createInitialForm">The Func that creates the initial form.</param>
     /// <param name="initialize">Initializes the form when created.</param>
+    /// <param name="defaultTextContainer"></param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public static ApplicationContext CreateTabbedApplication<T>(this Func<Form> createInitialForm, Func<T?, Task>? initialize)
+    public static ApplicationContext CreateTabbedApplication<T>(this Func<Form> createInitialForm, Func<T?, Task>? initialize, out IDefaultTextContainer defaultTextContainer)
         where T : Form
     {
-        return CreateTabbedApplication(createInitialForm, null, initialize);
+        return CreateTabbedApplication(createInitialForm, null, initialize, out defaultTextContainer);
     }
 
     /// <summary>
@@ -39,10 +39,11 @@ public static class TabbedApplicationHelper
     /// </summary>
     /// <param name="createInitialForm">The Func that creates the initial form.</param>
     /// <param name="createForm">The Func that creates the other forms.</param>
+    /// <param name="defaultTextContainer"></param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public static ApplicationContext CreateTabbedApplication(this Func<Form> createInitialForm, Func<Form>? createForm)
+    public static ApplicationContext CreateTabbedApplication(this Func<Form> createInitialForm, Func<Form>? createForm, out IDefaultTextContainer defaultTextContainer)
     {
-        return CreateTabbedApplication(createInitialForm, createForm, null);
+        return CreateTabbedApplication(createInitialForm, createForm, null, out defaultTextContainer);
     }
 
     /// <summary>
@@ -51,10 +52,11 @@ public static class TabbedApplicationHelper
     /// <param name="createInitialForm">The Func that creates the initial form.</param>
     /// <param name="createForm">The Func that creates the other forms.</param>
     /// <param name="initialize">Initializes the form when created.</param>
+    /// <param name="defaultTextContainer"></param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public static ApplicationContext CreateTabbedApplication(Func<Form> createInitialForm, Func<Form>? createForm, Func<Form?, Task>? initialize)
+    public static ApplicationContext CreateTabbedApplication(this Func<Form> createInitialForm, Func<Form>? createForm, Func<Form?, Task>? initialize, out IDefaultTextContainer defaultTextContainer)
     {
-        return CreateTabbedApplication<Form>(createInitialForm, createForm, initialize);
+        return CreateTabbedApplication<Form>(createInitialForm, createForm, initialize, out defaultTextContainer);
     }
 
     /// <summary>
@@ -63,51 +65,13 @@ public static class TabbedApplicationHelper
     /// <param name="createInitialForm">The Func that creates the initial form.</param>
     /// <param name="createForm">The Func that creates the other forms.</param>
     /// <param name="initialize">Initializes the form when created.</param>
+    /// <param name="defaultTextContainer"></param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public static ApplicationContext CreateTabbedApplication<T>(Func<Form> createInitialForm, Func<Form>? createForm, Func<T?, Task>? initialize)
+    public static ApplicationContext CreateTabbedApplication<T>(Func<Form> createInitialForm, Func<Form>? createForm, Func<T?, Task>? initialize, out IDefaultTextContainer defaultTextContainer)
         where T : Form
     {
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-
-        createForm ??= createInitialForm;
-
-        _container = new TitleBarTabs();
-        _container.CreatingForm += async (_, e) =>
-        {
-            var eForm = createForm();
-            e.Form = eForm;
-            if (initialize != null)
-            {
-                await initialize.Invoke(eForm as T);
-            }
-        };
-
-        // Add the initial Tab
-        _container.AddTab(createInitialForm());
-
-        // Set initial tab the first one
-        _container.SelectedTabIndex = 0;
-
-        // Create tabs and start application
-        TitleBarTabsApplicationContext applicationContext = new TitleBarTabsApplicationContext();
-        applicationContext.Start(_container);
-        return applicationContext;
+        defaultTextContainer = new DefaultTextContainer();
+        return ((DefaultTextContainer)defaultTextContainer).CreateTabbedApplication(createInitialForm, createForm, initialize);
     }
 
-    /// <summary>
-    /// The default tab text.
-    /// </summary>
-    public static string? DefaultText
-
-    {
-        get => _container?.DefaultText;
-        set
-        {
-            if (_container != null)
-            {
-                _container.DefaultText = value;
-            }
-        }
-    }
 }

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using EasyTabs;
 using EasyTabsTests;
 using FormLogging.Logging;
@@ -12,10 +13,18 @@ static class Program
     [STAThread]
     public static int Main(string[] args)
     {
-        FormLogger.Instance.RunApplicationWithFormLogging(() => TabbedApplicationHelper.CreateTabbedApplication(() => new TabbedApplicationForm
+        IDefaultTextContainer? textContainer = null;
+        FormLogger.Instance.RunApplicationWithFormLogging(() => TabbedApplicationHelper.CreateTabbedApplication(() =>
+        {
+            var tabbedApplicationForm = new TabbedApplicationForm
             {
                 Text = "Test Form with a title very very long"
-            }));
+            };
+
+            textContainer.CloseApplicationOnFirstTabClosing(tabbedApplicationForm);
+            return tabbedApplicationForm;
+        }, out textContainer));
         return 0;
     }
+
 }

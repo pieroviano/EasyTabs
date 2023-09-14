@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
@@ -14,7 +13,6 @@ using EasyTabs.Model;
 using Win32Interop.Enums;
 using Win32Interop.Methods;
 using Win32Interop.Structs;
-using Timer = System.Timers.Timer;
 
 namespace EasyTabs;
 
@@ -523,31 +521,31 @@ public partial class TitleBarTabsOverlay : Form
                         oldBitmap = Gdi32.SelectObject(memDc, bitmapHandle);
 
                         SIZE size = new SIZE
-                        {
-                            cx = bitmap.Width,
-                            cy = bitmap.Height
-                        };
+                                    {
+                                        cx = bitmap.Width,
+                                        cy = bitmap.Height
+                                    };
 
                         POINT pointSource = new POINT
-                        {
-                            x = 0,
-                            y = 0
-                        };
+                                            {
+                                                x = 0,
+                                                y = 0
+                                            };
                         POINT topPos = new POINT
-                        {
-                            x = Left,
-                            y = Top
-                        };
+                                       {
+                                           x = Left,
+                                           y = Top
+                                       };
                         BLENDFUNCTION blend = new BLENDFUNCTION
-                        {
-                            // We want to blend the bitmap's content with the screen content under it
-                            BlendOp = Convert.ToByte((int)AC.AC_SRC_OVER),
-                            BlendFlags = 0,
-                            // Follow the parent forms' opacity level
-                            SourceConstantAlpha = (byte)(ParentFormValue.Opacity * 255),
-                            // We use the bitmap's alpha channel for blending instead of a pre-defined transparency key
-                            AlphaFormat = Convert.ToByte((int)AC.AC_SRC_ALPHA)
-                        };
+                                              {
+                                                  // We want to blend the bitmap's content with the screen content under it
+                                                  BlendOp = Convert.ToByte((int)AC.AC_SRC_OVER),
+                                                  BlendFlags = 0,
+                                                  // Follow the parent forms' opacity level
+                                                  SourceConstantAlpha = (byte)(ParentFormValue.Opacity * 255),
+                                                  // We use the bitmap's alpha channel for blending instead of a pre-defined transparency key
+                                                  AlphaFormat = Convert.ToByte((int)AC.AC_SRC_ALPHA)
+                                              };
 
                         // Blend the tab content with the underlying content
                         if (!User32.UpdateLayeredWindow(

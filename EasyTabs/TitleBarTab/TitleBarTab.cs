@@ -144,6 +144,15 @@ public class TitleBarTab
     }
 
     /// <summary>
+    /// The original content. 
+    /// </summary>
+    public Form? OriginalContent
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
     /// Called from <see cref="TornTabForm" /> when we need to generate a thumbnail for a tab when it is torn out of its parent window.  We simply call
     /// <see cref="Graphics.CopyFromScreen(Point,Point,Size)" /> to copy the screen contents to a
     /// <see cref="Bitmap" />.

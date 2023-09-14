@@ -161,18 +161,25 @@ namespace EasyTabs
                 }
             }
 
-            _parent.Invoke(
-                () =>
-                {
-                    try
+            try
+            {
+                _parent.Invoke(
+                    () =>
                     {
-                        _parent.DoOnMouseUp(new MouseEventArgs(MouseButtons.Left, 1, Cursor.Position.X, Cursor.Position.Y, 0));
-                    }
-                    catch (ThreadInterruptedException e)
-                    {
-                        Trace.Write(e);
-                    }
-                });
+                        try
+                        {
+                            _parent.DoOnMouseUp(new MouseEventArgs(MouseButtons.Left, 1, Cursor.Position.X, Cursor.Position.Y, 0));
+                        }
+                        catch (ThreadInterruptedException e)
+                        {
+                            Trace.Write(e);
+                        }
+                    });
+            }
+            catch (ThreadInterruptedException e)
+            {
+                Trace.Write(e);
+            }
         }
 
         private void HandleMouseDown()

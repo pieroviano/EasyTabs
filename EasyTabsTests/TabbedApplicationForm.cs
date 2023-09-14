@@ -84,4 +84,9 @@ public partial class TabbedApplicationForm : Form
         };
         form.Controls.Add(control);
     }
+
+    private void button3_Click(object? sender, EventArgs e)
+    {
+        Close();
+    }
 }
