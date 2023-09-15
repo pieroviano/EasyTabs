@@ -345,11 +345,11 @@ public partial class TitleBarTabsOverlay : Form
     protected IntPtr MouseHookCallback(int nCode, IntPtr wParam, IntPtr lParam)
     {
         MouseEvent mouseEvent = new MouseEvent
-        {
-            NumericCode = nCode,
-            WideParam = wParam,
-            LongParam = lParam
-        };
+                                {
+                                    NumericCode = nCode,
+                                    WideParam = wParam,
+                                    LongParam = lParam
+                                };
 
         if (nCode >= 0 && (int)WM.WM_MOUSEMOVE == (int)wParam)
         {
@@ -414,17 +414,17 @@ public partial class TitleBarTabsOverlay : Form
 
         if (ParentFormValue != null && ParentFormValue.ControlBox && ParentFormValue.MinimizeBox)
         {
-            rightMargin += SystemInformation.CaptionButtonSize.Width;
+            rightMargin += TabbedApplicationHelper.CaptionWidth;
         }
 
         if (ParentFormValue != null && ParentFormValue.ControlBox && ParentFormValue.MaximizeBox)
         {
-            rightMargin += SystemInformation.CaptionButtonSize.Width;
+            rightMargin += TabbedApplicationHelper.CaptionWidth;
         }
 
         if (ParentFormValue != null && ParentFormValue.ControlBox)
         {
-            rightMargin += SystemInformation.CaptionButtonSize.Width;
+            rightMargin += TabbedApplicationHelper.CaptionWidth;
         }
 
         LinearGradientBrush gradient = new LinearGradientBrush(
@@ -488,17 +488,17 @@ public partial class TitleBarTabsOverlay : Form
 
                         if (ParentFormValue.ControlBox)
                         {
-                            boxWidth += SystemInformation.CaptionButtonSize.Width;
+                            boxWidth += TabbedApplicationHelper.CaptionWidth;
                         }
 
                         if (ParentFormValue.MinimizeBox)
                         {
-                            boxWidth += SystemInformation.CaptionButtonSize.Width;
+                            boxWidth += TabbedApplicationHelper.CaptionWidth;
                         }
 
                         if (ParentFormValue.MaximizeBox)
                         {
-                            boxWidth += SystemInformation.CaptionButtonSize.Width;
+                            boxWidth += TabbedApplicationHelper.CaptionWidth;
                         }
 
                         CompositingMode oldCompositingMode = graphics.CompositingMode;

@@ -153,7 +153,7 @@ public abstract class BaseTabRenderer
     public virtual Font? CaptionFont => SystemFonts.CaptionFont;
 
     /// <summary>Height of the tab content area; derived from the height of <see cref="_activeCenterImage" />.</summary>
-    public virtual int TabHeight => _activeCenterImage?.Height??0;
+    public virtual int TabHeight => _activeCenterImage?.Height ?? 0;
 
     /// <summary>
     /// Gets the TopPadding.
@@ -398,22 +398,22 @@ public abstract class BaseTabRenderer
         }
 
         int minimumWidth = tabs.Sum(
-            tab => GetTabLeftImage(tab)?.Width??0 + GetTabRightImage(tab)?.Width??0 + (tab?.ShowCloseButton??false
+            tab => GetTabLeftImage(tab)?.Width ?? 0 + GetTabRightImage(tab)?.Width ?? 0 + (tab?.ShowCloseButton ?? false
                 ? tab.CloseButtonArea.Width + CloseButtonMarginLeft
                 : 0));
 
         minimumWidth += OverlapWidth;
 
-        minimumWidth += (_parentWindow?.ControlBox??false
-                ? SystemInformation.CaptionButtonSize.Width
+        minimumWidth += (_parentWindow?.ControlBox ?? false
+                ? TabbedApplicationHelper.CaptionWidth
                 : 0) -
             (_parentWindow?.MinimizeBox ?? false
-                ? SystemInformation.CaptionButtonSize.Width
+                ? TabbedApplicationHelper.CaptionWidth
                 : 0) -
             (_parentWindow?.MaximizeBox ?? false
-                ? SystemInformation.CaptionButtonSize.Width
+                ? TabbedApplicationHelper.CaptionWidth
                 : 0) + (ShowAddButton
-                ? _addButtonImage?.Width??0 + AddButtonMarginLeft +
+                ? _addButtonImage?.Width ?? 0 + AddButtonMarginLeft +
                   AddButtonMarginRight
                 : 0);
 
@@ -554,13 +554,13 @@ public abstract class BaseTabRenderer
                        : 0) -
                    tabs.Count * OverlapWidth -
                    (_parentWindow.ControlBox
-                       ? SystemInformation.CaptionButtonSize.Width
+                       ? TabbedApplicationHelper.CaptionWidth
                        : 0) -
                    (_parentWindow.MinimizeBox
-                       ? SystemInformation.CaptionButtonSize.Width
+                       ? TabbedApplicationHelper.CaptionWidth
                        : 0) -
                    (_parentWindow.MaximizeBox
-                       ? SystemInformation.CaptionButtonSize.Width
+                       ? TabbedApplicationHelper.CaptionWidth
                        : 0);
         }
 
@@ -623,7 +623,7 @@ public abstract class BaseTabRenderer
                 }
             }
 
-            int selectedIndex = tabs.FindIndex(t => t?.Active??false);
+            int selectedIndex = tabs.FindIndex(t => t?.Active ?? false);
             Image? tabCenterImage = null;
 
             if (selectedIndex != -1)
@@ -658,15 +658,15 @@ public abstract class BaseTabRenderer
                                             SystemInformation.BorderSize.Width +
                                             (_parentWindow != null && _parentWindow.WindowState == FormWindowState.Maximized
                                                 ? _parentWindow.ClientRectangle.Width - (_parentWindow.ControlBox
-                                                      ? SystemInformation.CaptionButtonSize.Width
+                                                      ? TabbedApplicationHelper.CaptionWidth
                                                       : 0) -
                                                   (_parentWindow.MinimizeBox
-                                                      ? SystemInformation.CaptionButtonSize.Width
+                                                      ? TabbedApplicationHelper.CaptionWidth
                                                       : 0) -
                                                   (_parentWindow.MaximizeBox
-                                                      ? SystemInformation.CaptionButtonSize.Width
+                                                      ? TabbedApplicationHelper.CaptionWidth
                                                       : 0)
-                                                : _parentWindow?.ClientRectangle.Width??0) - tabArea.Width, tabArea.X);
+                                                : _parentWindow?.ClientRectangle.Width ?? 0) - tabArea.Width, tabArea.X);
 
                                     int dropIndex = 0;
 

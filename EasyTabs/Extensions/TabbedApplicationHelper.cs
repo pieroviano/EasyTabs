@@ -74,4 +74,11 @@ public static class TabbedApplicationHelper
         return ((DefaultTextContainer)defaultTextContainer).CreateTabbedApplication(createInitialForm, createForm, initialize);
     }
 
+    /// <summary>
+    /// The caption width.
+    /// </summary>
+    public static int CaptionWidth
+    {
+        get;
+    } = SystemInformation.CaptionButtonSize.Width;
 }
