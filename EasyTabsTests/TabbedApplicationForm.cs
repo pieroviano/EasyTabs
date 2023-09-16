@@ -1,16 +1,12 @@
-// 1. Use Easy Tabs
-
 using System.Diagnostics;
 using CoreLibrary.Logging;
 using EasyTabs;
 using EasyTabs.Model;
-using WindowsFormsLibrary.Wait;
 
 namespace EasyTabsTests;
 
 public partial class TabbedApplicationForm : Form
 {
-    // 2. Important: Declare ParentTabs
     protected TitleBarTabs? ParentTabs => ParentForm as TitleBarTabs;
 
     public TabbedApplicationForm()
