@@ -25,7 +25,7 @@ internal class DefaultTextContainer : IDefaultTextContainer
     /// <param name="createForm">The Func that creates the other forms.</param>
     /// <param name="initialize">Initializes the form when created.</param>
     /// <returns>A TitleBarTabsApplicationContext</returns>
-    public ApplicationContext CreateTabbedApplication<T>(Func<Form> createInitialForm, Func<Form>? createForm, Func<T?, Task>? initialize)
+    public TitleBarTabsApplicationContext CreateTabbedApplication<T>(Func<Form> createInitialForm, Func<Form>? createForm, Func<T?, Task>? initialize)
         where T : Form
     {
         Application.EnableVisualStyles();
@@ -33,7 +33,7 @@ internal class DefaultTextContainer : IDefaultTextContainer
 
         createForm ??= createInitialForm;
 
-        _container = new TitleBarTabs();
+        _container = new TitleBarTabs(PercentX);
         _container.CreatingForm += async (_, e) =>
         {
             var eForm = createForm();
@@ -55,6 +55,12 @@ internal class DefaultTextContainer : IDefaultTextContainer
         applicationContext.Start(_container);
         return applicationContext;
     }
+
+    public double PercentX
+    {
+        get;
+        set;
+    } = 2.5;
 
     /// <summary>
     /// The default tab text.

@@ -9,11 +9,12 @@ namespace TestApp
     public partial class TestApp : TitleBarTabs
     {
         public TestApp()
+            : base(2.5)
         {
             InitializeComponent();
 
             AeroPeekEnabled = true;
-            TabRenderer = new ChromeTabRenderer(this);
+            TabRenderer = new ChromeTabRenderer(this, 2.5);
             Icon = Resources.DefaultIcon;
         }
 

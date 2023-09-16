@@ -85,7 +85,8 @@ public partial class TitleBarTabs : Form
     public event EventHandler<FormEventArgs>? CreatingForm;
 
     /// <summary>Default constructor.</summary>
-    public TitleBarTabs()
+    /// <param name="percentX"></param>
+    public TitleBarTabs(double percentX=1.0)
     {
         FormClosing += ApplicationFormClosing;
 
@@ -113,7 +114,7 @@ public partial class TitleBarTabs : Form
         {
             CreatingForm?.Invoke(this, e);
         };
-        TabRenderer = new ChromeTabRenderer(this);
+        TabRenderer = new ChromeTabRenderer(this, percentX);
     }
 
     /// <summary>

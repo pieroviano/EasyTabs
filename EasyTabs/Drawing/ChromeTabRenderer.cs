@@ -15,19 +15,20 @@ public sealed class ChromeTabRenderer : BaseTabRenderer
 
     /// <summary>Constructor that initializes the various resources that we use in rendering.</summary>
     /// <param name="parentWindow">Parent window that this renderer belongs to.</param>
-    public ChromeTabRenderer(TitleBarTabs? parentWindow)
+    /// <param name="percentX"></param>
+    public ChromeTabRenderer(TitleBarTabs? parentWindow, double percentX)
         : base(parentWindow)
     {
         // Initialize the various images to use during rendering
         _activeLeftSideImage = Resources.ChromeLeft;
         _activeRightSideImage = Resources.ChromeRight;
-        _activeCenterImage = Resources.ChromeCenter;
+        _activeCenterImage = Resources.ChromeCenter.ResizeImage(percentX,1.0);
         _inactiveLeftSideImage = Resources.ChromeInactiveLeft;
         _inactiveRightSideImage = Resources.ChromeInactiveRight;
-        _inactiveCenterImage = Resources.ChromeInactiveCenter;
+        _inactiveCenterImage = Resources.ChromeInactiveCenter.ResizeImage(percentX, 1.0);
         _closeButtonImage = Resources.ChromeClose;
         _closeButtonHoverImage = Resources.ChromeCloseHover;
-        _background = IsWindows10 ? Resources.ChromeBackground : null;
+        _background = IsWindows10 ? Resources.ChromeBackground.ResizeImage(percentX, 1.0) : null;
         _addButtonImage = new Bitmap(Resources.ChromeAdd);
         _addButtonHoverImage = new Bitmap(Resources.ChromeAddHover);
 

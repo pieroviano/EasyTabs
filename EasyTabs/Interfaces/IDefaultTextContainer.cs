@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace EasyTabs;
@@ -10,10 +9,18 @@ public interface IDefaultTextContainer
 
 {
     /// <summary>
+    /// The X percent of growth.
+    /// </summary>
+    double PercentX
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
     /// The default tab text.
     /// </summary>
     string? DefaultText
-
     {
         get;
         set;

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using CoreLibrary.Logging;
 using EasyTabs;
 using EasyTabs.Model;
+using WindowsFormsLibrary.Wait;
 
 namespace EasyTabsTests;
 
@@ -14,6 +15,7 @@ public partial class TabbedApplicationForm : Form
 
     public TabbedApplicationForm()
     {
+        WaitHandler.Register();
         InitializeComponent();
         Icon = Properties.Resources.tabs;
     }

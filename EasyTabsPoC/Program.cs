@@ -23,7 +23,13 @@ static class Program
 
             textContainer.CloseApplicationOnFirstTabClosing(tabbedApplicationForm);
             return tabbedApplicationForm;
-        }, out textContainer));
+        }, () =>
+        {
+            var tabbedApplicationForm = FormCreationHelper.Instance.CreateFormInOtherThread("Other Form", () => new OtherForm());
+
+            textContainer.CloseApplicationOnFirstTabClosing(tabbedApplicationForm);
+            return tabbedApplicationForm;
+        }, out textContainer), false, false);
         return 0;
     }
 

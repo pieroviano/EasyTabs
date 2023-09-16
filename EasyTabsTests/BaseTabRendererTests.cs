@@ -312,7 +312,7 @@ public class BaseTabRendererTests
     public void Overlay_MouseDown_WhenSelectedTabIsNull_DoesNotChangeState()
     {
         // Arrange
-        var titleBarTabs = new TitleBarTabs();
+        var titleBarTabs = new TitleBarTabs(1.0);
         var selectedTab = new TitleBarTab(null);
         selectedTab.Active = true;
         titleBarTabs.SelectedTab = selectedTab;
@@ -331,7 +331,7 @@ public class BaseTabRendererTests
     public void Overlay_MouseDown_WhenSelectedTabIsNotNull_SetsDragStartAndTabClickOffset()
     {
         // Arrange
-        var titleBarTabs = new TitleBarTabs();
+        var titleBarTabs = new TitleBarTabs(1.0);
         var selectedTab = new TitleBarTab(null);
         selectedTab.Active = true;
         titleBarTabs.SelectedTab = selectedTab;

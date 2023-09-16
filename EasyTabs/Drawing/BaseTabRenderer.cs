@@ -846,7 +846,7 @@ public abstract class BaseTabRenderer
                             GraphicsUnit.Pixel);
 
                         tabGraphicsContext.DrawImage(
-                            tabCenterImage, new Rectangle(tabLeftImage.Width, 0, _tabContentWidth, tabCenterImage.Height), 0, 0, _tabContentWidth,
+                            tabCenterImage, new Rectangle(tabLeftImage.Width, 0, (int)(_tabContentWidth*1.01), tabCenterImage.Height), 0, 0, _tabContentWidth,
                             tabCenterImage.Height,
                             GraphicsUnit.Pixel);
 
