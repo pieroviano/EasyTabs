@@ -15,7 +15,6 @@ public partial class TabbedApplicationForm : Form
 
     public TabbedApplicationForm()
     {
-        WaitHandler.Register();
         InitializeComponent();
         Icon = Properties.Resources.tabs;
     }
