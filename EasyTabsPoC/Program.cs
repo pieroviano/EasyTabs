@@ -29,7 +29,7 @@ static class Program
 
             textContainer.CloseApplicationOnFirstTabClosing(tabbedApplicationForm);
             return tabbedApplicationForm;
-        }, out textContainer), false, false);
+        }, out textContainer), true, false);
         return 0;
     }
 

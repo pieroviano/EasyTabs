@@ -135,5 +135,6 @@
     <UpdateLibraryPocVersion>1.0.0</UpdateLibraryPocVersion>
     <Net4xMSHTMLVersion>1.0.0</Net4xMSHTMLVersion>
     <BrutalDevStrongNameSignerVersion>3.2.1</BrutalDevStrongNameSignerVersion>
+    <ValuesFromSelectVersion>1.0.0</ValuesFromSelectVersion>
   </PropertyGroup>
 </Project>

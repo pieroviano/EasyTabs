@@ -86,7 +86,7 @@ public partial class TitleBarTabs : Form
 
     /// <summary>Default constructor.</summary>
     /// <param name="percentX"></param>
-    public TitleBarTabs(double percentX=1.0)
+    public TitleBarTabs(double percentX = 1.0)
     {
         FormClosing += ApplicationFormClosing;
 
@@ -1154,7 +1154,7 @@ public partial class TitleBarTabs : Form
             // In our example, we will create a new instance of the Form1
 
             Content = content,
-            OriginalContent=contentCopy
+            OriginalContent = contentCopy
         };
         titleBarTab.Icon = content.Icon;
         return titleBarTab;
@@ -1211,9 +1211,9 @@ public partial class TitleBarTabs : Form
             content.Show();
 
             var titleBarTab = new TitleBarTab(this)
-                              {
-                                  Content = content,
-                              };
+            {
+                Content = content,
+            };
             titleBarTab.OriginalContent ??= content;
             Tabs.Add(titleBarTab);
         }
