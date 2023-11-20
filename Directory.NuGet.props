@@ -5,7 +5,6 @@
     <VersionBuildSuffix Condition="'$(Configuration)'!='Release'">*-*</VersionBuildSuffix>
     <VersionBuildSuffix Condition="'$(Configuration)'=='Release'">*</VersionBuildSuffix>
     <DirectoryNuGet>true</DirectoryNuGet>
-    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">2.0.11</NuGetUtilityVersion>
     <ImmatricolazioniWsLibrariesVersion>1.1.0</ImmatricolazioniWsLibrariesVersion>
     <FatturaElettronicaVersion>3.2.0</FatturaElettronicaVersion>
     <DocumentoUnicoLibrariesVersion>2.1.0</DocumentoUnicoLibrariesVersion>
@@ -99,7 +98,7 @@
     <iTextCoreVersion>1.1.0</iTextCoreVersion>
     <PdfRepresentationVersion>1.1.0</PdfRepresentationVersion>
     <StarbVersion>23.5.0</StarbVersion>
-    <NuGetUtilityVersion>2.0.11</NuGetUtilityVersion>
+    <NuGetUtilityVersion>2.0.12</NuGetUtilityVersion>
     <DocumentoUnicoVersion>2.1.0</DocumentoUnicoVersion>
     <SystemDataDataSetExtensionsVersion>4.5.0</SystemDataDataSetExtensionsVersion>
     <PagedListVersion>4.5.0</PagedListVersion>
@@ -136,5 +135,14 @@
     <Net4xMSHTMLVersion>1.0.0</Net4xMSHTMLVersion>
     <BrutalDevStrongNameSignerVersion>3.2.1</BrutalDevStrongNameSignerVersion>
     <ValuesFromSelectVersion>1.0.0</ValuesFromSelectVersion>
+    <HostProcessLibrary>1.0.0</HostProcessLibrary>
+    <WpfAdornedControlVersion>1.0.0</WpfAdornedControlVersion>
+    <CreateHiddenProcessVersion>1.0.0</CreateHiddenProcessVersion>
+    <HostAppInPanelVersion>1.0.0</HostAppInPanelVersion>
+    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">2.0.12</NuGetUtilityVersion>
+    <SeleniumLibraryVersion>1.0.0</SeleniumLibraryVersion>
+    <RegistryVersion>1.0.0</RegistryVersion>
+    <ClassLibrary1Version>13.0.3</ClassLibrary1Version>
+    <CodiceFiscaleVersion>1.0.0</CodiceFiscaleVersion>
   </PropertyGroup>
 </Project>
