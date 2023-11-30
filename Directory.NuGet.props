@@ -144,5 +144,6 @@
     <RegistryVersion>1.0.0</RegistryVersion>
     <ClassLibrary1Version>13.0.3</ClassLibrary1Version>
     <CodiceFiscaleVersion>1.0.0</CodiceFiscaleVersion>
+    <SystemDrawingCommon8Version>8.0.0</SystemDrawingCommon8Version>
   </PropertyGroup>
 </Project>
