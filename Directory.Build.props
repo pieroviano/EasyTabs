@@ -2,7 +2,16 @@
 	<Import Project="Directory.NuGet.props" />
 	<PropertyGroup>
 		<VersionPrefix>$(EasyTabsVersion)</VersionPrefix>
+		<SolutionDir Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</SolutionDir>
 		<VersionSuffix Condition="'$(Configuration)' != 'Release'">0-at20230511053312</VersionSuffix>
 		<VersionSuffix Condition="'$(Configuration)' == 'Release'">0</VersionSuffix>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<RepositoryUrl>https://github.com/pieroviano/EasyTabs</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
 	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" IncludeAssets="runtime; build; native; contentfiles; analyzers; buildtransitive" />
+	</ItemGroup>
 </Project>

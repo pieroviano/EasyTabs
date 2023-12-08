@@ -15,7 +15,7 @@
     <PackageId>Net4x.$(AssemblyName)</PackageId>
     <Title>EasyTabs</Title>
     <Authors>Luke Stratman</Authors>
-    <PackageProjectUrl>https://github.com/lstratman/EasyTabs.git</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/pieroviano/EasyTabs.git</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pieroviano/EasyTabs</RepositoryUrl>
     <PackageTags>TitleBarTabs</PackageTags>
     <PackageReleaseNotes>
@@ -38,6 +38,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>CS1574</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Chrome\Add.png" />

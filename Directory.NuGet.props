@@ -4,6 +4,7 @@
     <NuGetPackageRoot Condition="'$(NuGetPackageRoot)'=='' and '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' != 'true'">~/.nuget/packages/</NuGetPackageRoot>
     <VersionBuildSuffix Condition="'$(Configuration)'!='Release'">*-*</VersionBuildSuffix>
     <VersionBuildSuffix Condition="'$(Configuration)'=='Release'">*</VersionBuildSuffix>
+    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">2.0.12</NuGetUtilityVersion>
     <DirectoryNuGet>true</DirectoryNuGet>
     <ImmatricolazioniWsLibrariesVersion>1.1.0</ImmatricolazioniWsLibrariesVersion>
     <FatturaElettronicaVersion>3.2.1</FatturaElettronicaVersion>
@@ -13,7 +14,7 @@
     <PdfRecognizerLibraryVersion>1.2.0</PdfRecognizerLibraryVersion>
     <SetupCustomActionVersion>1.1.0</SetupCustomActionVersion>
     <ImmatricolazioniLibraries>1.0.0</ImmatricolazioniLibraries>
-    <NumberConverterLibVersion>1.0.0</NumberConverterLibVersion>
+    <NumberConverterLibVersion>1.1.0</NumberConverterLibVersion>
     <FluentValidationVersion>11.5.2</FluentValidationVersion>
     <FluentValidation9Version>9.2.2</FluentValidation9Version>
     <UnitTestLibrary>1.2.0</UnitTestLibrary>
@@ -97,8 +98,7 @@
     <Xsd2DbVersion>1.2.0</Xsd2DbVersion>
     <iTextCoreVersion>1.2.0</iTextCoreVersion>
     <PdfRepresentationVersion>1.2.0</PdfRepresentationVersion>
-    <StarbVersion>23.6.0</StarbVersion>
-    <NuGetUtilityVersion>2.0.12</NuGetUtilityVersion>
+    <StarbVersion>30.0.0</StarbVersion>
     <DocumentoUnicoVersion>2.2.0</DocumentoUnicoVersion>
     <SystemDataDataSetExtensionsVersion>4.5.0</SystemDataDataSetExtensionsVersion>
     <PagedListVersion>4.5.0</PagedListVersion>
@@ -126,10 +126,10 @@
     <Net4xConfigurationVersion>1.1.0</Net4xConfigurationVersion>
     <BarcodeVersion>1.1.0</BarcodeVersion>
     <CompressExistingPDFVersion>2.0.0</CompressExistingPDFVersion>
-    <AppDomainAlternativeVersion>1.8.0</AppDomainAlternativeVersion>
-    <Win32InteropVersion>1.0.2</Win32InteropVersion>
+    <AppDomainAlternativeVersion>1.9.0</AppDomainAlternativeVersion>
+    <Win32InteropVersion>1.0.3</Win32InteropVersion>
     <EasyTabsVersion>1.1.0</EasyTabsVersion>
-    <WindowsAPICodePackVersion>1.1.5</WindowsAPICodePackVersion>
+    <WindowsAPICodePackVersion>1.1.6</WindowsAPICodePackVersion>
     <AsyncEnumerableVersion>1.2.0</AsyncEnumerableVersion>
     <UpdateLibraryPocVersion>1.1.0</UpdateLibraryPocVersion>
     <Net4xMSHTMLVersion>1.1.0</Net4xMSHTMLVersion>
@@ -139,7 +139,6 @@
     <WpfAdornedControlVersion>1.1.0</WpfAdornedControlVersion>
     <CreateHiddenProcessVersion>1.1.0</CreateHiddenProcessVersion>
     <HostAppInPanelVersion>1.1.0</HostAppInPanelVersion>
-    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">2.0.12</NuGetUtilityVersion>
     <SeleniumLibraryVersion>1.1.0</SeleniumLibraryVersion>
     <CodiceFiscaleVersion>1.1.0</CodiceFiscaleVersion>
     <SystemDrawingCommon8Version>8.0.0</SystemDrawingCommon8Version>
