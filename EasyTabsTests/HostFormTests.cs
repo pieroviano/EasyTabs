@@ -26,9 +26,9 @@ public class HostFormTests
     private static async Task DoWork(HostForm mainForm)
     {
         await mainForm.Button1OnClick();
-        await TimeSpan.FromSeconds(1).Delay();
+        await TimeSpan.FromSeconds(1).DelayAsync();
         await mainForm.Button2OnClick();
-        await TimeSpan.FromSeconds(1).Delay();
+        await TimeSpan.FromSeconds(1).DelayAsync();
         mainForm.Close();
     }
 }

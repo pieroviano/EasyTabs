@@ -62,9 +62,9 @@ public class TabbedApplicationFormTests
         }
 
         _called = true;
-        await TimeSpan.FromSeconds(1).Delay();
+        await TimeSpan.FromSeconds(1).DelayAsync();
         Form form = await mainForm.Button1OnClick();
-        await TimeSpan.FromSeconds(1).Delay();
+        await TimeSpan.FromSeconds(1).DelayAsync();
         var formLocal = form;
         _ = new Action(
             () =>
@@ -76,7 +76,7 @@ public class TabbedApplicationFormTests
                     });
             }).Run();
         form = await mainForm.Button2OnClick();
-        await TimeSpan.FromSeconds(1).Delay();
+        await TimeSpan.FromSeconds(1).DelayAsync();
         form.Close();
         mainForm.Close();
         _createTabbedApplication.Dispose();

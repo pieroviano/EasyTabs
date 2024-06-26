@@ -37,7 +37,7 @@ public static class FormExtension
 
         while (!parentForm.IsHandleCreated)
         {
-            await TaskEx.Delay(10);
+            await TaskEx.DelayAsync(10);
         }
         parentForm.Invoke(
             () =>
@@ -101,7 +101,7 @@ public static class FormExtension
         Thread? controlThread = null;
         while (!control.IsHandleCreated)
         {
-            await TaskEx.Delay(10);
+            await TaskEx.DelayAsync(10);
         }
         control.Invoke(
             () =>
