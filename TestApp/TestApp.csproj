@@ -8,7 +8,7 @@
     <Company>Luke Stratman</Company>
     <Product>.NET Title Bar Tabs Test App</Product>
     <Description>Test application for the .NET title bar tabs project</Description>
-    <Copyright>Copyright © 2020</Copyright>
+    <Copyright>Copyright (c) Piero Viano. All rights reserved.</Copyright>
     <Platforms>x86;x64</Platforms>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>

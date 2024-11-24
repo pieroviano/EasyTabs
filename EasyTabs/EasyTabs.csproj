@@ -10,7 +10,7 @@
         <Description>
 			Library to enable .NET WinForms apps to easily render a set of tabs in their titlebar space, similar to Chrome, Firefox, Edge, etc.
 		</Description>
-        <Copyright>Copyright © 2020</Copyright>
+        <Copyright>Copyright (c) Piero Viano. All rights reserved.</Copyright>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageId>Net4x.$(AssemblyName)</PackageId>
         <Title>EasyTabs</Title>
@@ -76,12 +76,12 @@
         <PackageReference Include="NuGetUtility" Version="$(NuGetUtilityVersion)" PrivateAssets="All" />
     </ItemGroup>
     <ItemGroup>
-        <Reference Include="PresentationCore" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
-        <Reference Include="System.Web" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
-        <Reference Include="System.Data.DataSetExtensions" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
-        <Reference Include="System.Deployment" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
-        <Reference Include="System.Windows.Forms" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
-        <Reference Include="WindowsBase" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows'" />
+        <Reference Include="PresentationCore" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
+        <Reference Include="System.Web" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
+        <Reference Include="System.Data.DataSetExtensions" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
+        <Reference Include="System.Deployment" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
+        <Reference Include="System.Windows.Forms" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
+        <Reference Include="WindowsBase" Condition="'$(TargetFramework)'!='net5.0-windows' and '$(TargetFramework)' != 'net6.0-windows' and '$(TargetFramework)' != 'net7.0-windows' and '$(TargetFramework)' != 'net8.0-windows' and '$(TargetFramework)' != 'net9.0-windows'" />
     </ItemGroup>
     <ItemGroup>
         <Compile Update="TitleBarTab\TornTabForm.cs">
