@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" />
+    <Import Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props')" Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.props" />
     <PropertyGroup>
         <Version>$(VersionPrefix).$(VersionSuffix)</Version>
         <TargetFrameworks>net35;net40;net45;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
@@ -69,7 +69,7 @@
         <PackageReference Include="Net4x.Win32Interop.Kernel32" Version="$(Win32InteropVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="Net4x.Win32Interop.User32" Version="$(Win32InteropVersion).$(VersionBuildSuffix)" />
         <PackageReference Include="Net4x.Win32Interop.Uxtheme" Version="$(Win32InteropVersion).$(VersionBuildSuffix)" />
-        <PackageReference Include="NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
+        <PackageReference Include="Net4x.NuGetUtility" PrivateAssets="All" Version="$(NuGetUtilityVersion)" />
         <PackageReference Include="Svg" Condition="'$(TargetFramework)'=='net35' or '$(TargetFramework)'=='net40' or '$(TargetFramework)'=='net45'" Version="2.4.3" />
         <PackageReference Include="Svg" Condition="'$(TargetFramework)'=='net5.0-windows' or '$(TargetFramework)'=='net6.0-windows' or '$(TargetFramework)'=='net7.0-windows' or '$(TargetFramework)'=='net8.0-windows'" Version="3.4.4" />
         <PackageReference Include="System.Resources.Extensions" Condition="'$(TargetFramework)'=='net5.0-windows' or '$(TargetFramework)'=='net6.0-windows' or '$(TargetFramework)'=='net7.0-windows'" Version="7.0.0" />
@@ -103,5 +103,5 @@
         </Compile>
         <None Include="..\README.md" Link="README.md" Pack="True" PackagePath="\" />
     </ItemGroup>
-    <Import Condition="Exists('$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" Project="$(NuGetPackageRoot)nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" />
+    <Import Condition="Exists('$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets')" Project="$(NuGetPackageRoot)net4x.nugetutility/$(NuGetUtilityVersion)/build/NuGet.Utility.targets" />
 </Project>

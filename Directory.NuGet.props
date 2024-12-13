@@ -4,7 +4,7 @@
     <NuGetPackageRoot Condition="'$(NuGetPackageRoot)'=='' and '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' != 'true'">~/.nuget/packages/</NuGetPackageRoot>
     <VersionBuildSuffix Condition="'$(Configuration)'!='Release'">*</VersionBuildSuffix>
     <VersionBuildSuffix Condition="'$(Configuration)'=='Release'">*</VersionBuildSuffix>
-    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">2.5.0</NuGetUtilityVersion>
+    <NuGetUtilityVersion Condition="'$(NuGetUtilityVersion)' == ''">1.0.0</NuGetUtilityVersion>
     <DirectoryNuGet>true</DirectoryNuGet>
     <AggiuntaSTAVersion>1.0.0</AggiuntaSTAVersion>
     <AppDomainAlternativeVersion>1.9.0</AppDomainAlternativeVersion>
@@ -168,7 +168,7 @@
     <NotifyIconWpfnugetVersion>2.3.0</NotifyIconWpfnugetVersion>
     <NotifyIconWpfVersion>2.3.0</NotifyIconWpfVersion>
     <NuGetUtilityPocVersion>2.0.12</NuGetUtilityPocVersion>
-    <NuGetUtilityVersion>2.1.0</NuGetUtilityVersion>
+    <NuGetUtilityVersion>1.0.0</NuGetUtilityVersion>
     <NumberConverterLibVersion>1.2.0</NumberConverterLibVersion>
     <ObfuscarVersion>2.2.37</ObfuscarVersion>
     <OcrLibrarynugetVersion>1.3.0</OcrLibrarynugetVersion>
